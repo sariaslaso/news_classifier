@@ -8,4 +8,11 @@ dataset](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-data
 
 ## data cleaning - processing
 
+The clean data is split into training, validation and test datasets
+and can be accessed in the dataset directory.
+
 ## training
+
+The model can be trained by running `train_model.ipynb`.
+
+## testing
