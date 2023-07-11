@@ -21,7 +21,7 @@ class TestRequest(BaseModel):
 class FakeNewsResponse(BaseModel):
 
 	probability : float
-	#is_fake : bool
+	is_fake : bool
 
 
 @app.get("/", response_model = FakeNewsResponse)
@@ -29,13 +29,11 @@ async def root(title : str):
 
 	#run model:
 	#prob = model([title])[0]
-	prob = model(np.array([title]))[0]
+	prob = model(np.array([title])).numpy().flatten()[0]
 
 	prob_boolean = prob < 0.5
 
-	#return {"probability": float(prob), "is_fake" : prob_boolean[0][0]}
-	return {"probability": float(prob)}
-
+	return {"probability": float(prob), "is_fake" : prob_boolean}
 
 @app.post("/test_post")
 async def test_post(request : TestRequest):
