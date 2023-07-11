@@ -4,6 +4,7 @@ from pydantic import BaseModel
 import sys
 sys.path.append('..')
 
+import numpy as np
 import tensorflow as tf
 from utils.tf_mcc import MCC
 
@@ -20,16 +21,20 @@ class TestRequest(BaseModel):
 class FakeNewsResponse(BaseModel):
 
 	probability : float
-	is_fake : bool
+	#is_fake : bool
 
 
 @app.get("/", response_model = FakeNewsResponse)
-async def root(extra_text : str):
+async def root(title : str):
 
 	#run model:
-	prob = model([extra_text])[0]
+	#prob = model([title])[0]
+	prob = model(np.array([title]))[0]
 
-	return {"probability": float(prob), "is_fake" : prob < 0.5}
+	prob_boolean = prob < 0.5
+
+	#return {"probability": float(prob), "is_fake" : prob_boolean[0][0]}
+	return {"probability": float(prob)}
 
 
 @app.post("/test_post")
