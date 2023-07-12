@@ -24,7 +24,7 @@ class FakeNewsResponse(BaseModel):
 	is_fake : bool
 
 
-@app.get("/", response_model = FakeNewsResponse)
+@app.get("/news_classifier", response_model = FakeNewsResponse)
 async def root(title : str):
 
 	#run model:
