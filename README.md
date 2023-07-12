@@ -18,4 +18,5 @@ The model can be trained by running `train_model.ipynb`.
 
 ## testing
 
-The model is loaded and tested by running `test_model.ipynb`.
+The model is loaded and tested by running `test_model.ipynb`. The
+model can be used by running the FastAPI file `main.py`.
