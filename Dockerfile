@@ -17,4 +17,4 @@ COPY ./main.py /code/main.py
 
 
 # set the command to run the uvicorn server
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]

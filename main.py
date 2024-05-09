@@ -6,10 +6,10 @@ sys.path.append('..')
 
 import numpy as np
 import tensorflow as tf
-from utils.tf_mcc import MCC
+#from utils.tf_mcc import MCC
 
-path_to_model = "model/fake_news_classifier"
-model = tf.keras.models.load_model(path_to_model)
+#path_to_model = "model/fake_news_classifier/model.keras"
+model = tf.keras.models.load_model("model.keras")
 
 app = FastAPI()
 
@@ -35,13 +35,13 @@ async def root(title : str):
 
 	return {"probability": float(prob), "is_fake" : prob_boolean}
 
-@app.post("/test_post")
-async def test_post(request : TestRequest):
+#@app.post("/test_post")
+#async def test_post(request : TestRequest):
 
-	a = request.a
-	b = request.b
+#	a = request.a
+#	b = request.b
 
-	return {"message": f"a was: {a} and one plus b = {1+b}"}
+#	return {"message": f"a was: {a} and one plus b = {1+b}"}
 
 
 #'{"a" : "some stuff", "b" : 23}'
