@@ -20,7 +20,7 @@ The model can be trained by running `train_model.ipynb`.
 ## testing
 
 The model is loaded and tested by running `test_model.ipynb`. The
-model can be used by running a Docker container. To build the docker
+model can be used by running a Docker container. To build the Docker
 image, one can run the command
 ```
 docker build -t news_classifier_image .
@@ -29,4 +29,4 @@ and the command
 ```
 docker run -d --name news_classifier_container -p 80:80 news_classifier_image
 ```
-to run the docker container.
+to run the Docker container.
